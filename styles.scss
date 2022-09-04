@@ -1,57 +1,97 @@
-$colors: (main: #8e878e);
-$font-colors: (main: #151110, secondary: rgb(228, 218, 218));
+$colors: (main: #230d23);
+$font-colors: (main: #F6F6F6, secondary: #64ffda);
 $background-colors: (main: rgb(17, 18, 17));
-$borders: (main: 0.05rem solid map-get($colors, main), navbarBrand: 0.05rem solid #000);
+$borders: (main: 0.2rem solid #64ffda);
 $font-family-default: sans-serif;
 
+@mixin display-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+  
+
+.shiningEffectForText {
+    color: #64ffda;
+    text-shadow:
+        0 0 1px #fff,
+        0 0 2px #fff,
+        0 0 6px #fff,
+        0 0 1px #0fa,
+        0 0 1px #0fa,
+        0 0 1px #0fa,
+        0 0 1px #0fa,
+        0 0 1px #0fa;
+}
 
 * {
     padding: 0;
     margin: 0;
 }
 
+body {
+    background-color: map-get($colors, main);
+    color: map-get($font-colors, main);
+}
+
 .navbar-wrapper {
+    @include display-flex();
     width: 100%;
     height: auto;
     min-height: 4rem;
-    background-color: map-get($colors, main);
-    display: flex;
     justify-content: center;
     align-items: center;
     font-family: $font-family-default;
 }
 
-.navbar-brand img {
+.navbar-brand {
     display: block;
-    width: 60px;
-    height: 60px;
-    border: map-get($borders, navbarBrand);
+    background: {
+        image: url("https://cdn-icons-png.flaticon.com/512/3749/3749784.png");
+        repeat: no-repeat;
+        size: 30px;
+        position: center;
+    };
+    width: 50px;
+    height: 50px;
+    border: map-get($borders, main);
     border-radius: 50%;
     text-align: center;
+    margin: 0;
+}
+
+.menuBtnColor {
+    border: map-get($borders, main);
+}
+
+.menuColor  {
+    color: map-get($font-colors, secondary);
 }
 
 .navbar-collapse {
+    @include display-flex();
     width: 100%;
-    display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .navbar-nav {
+    @include display-flex();
     width: 40%;
     height: auto;
     margin-right: 5rem;
-    display: flex;
     flex: {
         direction: row;
         wrap: wrap;
       };
     justify-content: space-between;
+    align-items: center;
     @media (max-width: 1000px) {
+        @include display-flex();
         width: 80%;
         height: auto;
         margin: auto;
-        display: flex;
         flex: {
             direction: row;
             wrap: wrap;
@@ -59,10 +99,10 @@ $font-family-default: sans-serif;
         justify-content: space-between;
       }
       @media (max-width: 500px) {
+        @include display-flex();
         width: 100%;
         height: auto;
         margin: auto;
-        display: flex;
         flex: {
             direction: column;
             wrap: wrap;
@@ -76,13 +116,98 @@ $font-family-default: sans-serif;
     text-transform: capitalize;
     color: map-get($font-colors, main);
     text-decoration: none;
+    &:hover,
+    &:focus { 
+  color: map-get($font-colors, secondary);
+    }
 }
 
-.nav-item-contact a {
-    background-color: map-get($background-colors, main);
+.nav-item-contact {
+    box-sizing: border-box;
+    border: map-get($borders, main);
     border-radius: 15px;
-    display: block;
     text-align: center;
-    color: map-get($font-colors, secondary);
 }
+
+.socialMediaColumn-wrapper {
+    position: fixed;
+    @include display-flex();
+    width: 5%;
+    min-width: 80px;
+    height: auto;
+    min-height: 60vh;   
+    margin-top: 30px;
+    flex: {
+        direction: column;
+        wrap: nowrap;
+    };
+    align-items: center;
+    justify-content: center;
+}
+
+.socialMediaColumn {
+    @include display-flex();
+    padding: 0;
+    height: 70vh;
+    flex: {
+        direction: column;
+        wrap: nowrap;
+    };
+    align-items: center;
+    justify-content: space-between;
+}
+
+.socialMediaColumn-item {
+    list-style: none;
+}
+
+.fa-brands {
+    font-weight: 100;
+    font-size: 20px;
+    @extend .shiningEffectForText;
+}
+
+.leftLine {
+    width: 1px;
+    height: 150px;
+    background-color: map-get($font-colors, secondary);
+}
+
+.introSection {
+    @include display-flex();
+    width: 100%;
+    height: auto;
+    padding: 0 100px;
+    margin: 30px 10px;
+    flex: {
+        direction: row;
+        wrap: nowrap;
+    };
+    align-items: stretch;
+}
+
+.introSection-main {
+    h3 {
+        font-size: 15px;
+        color: map-get($font-colors, secondary);
+    };
+    h1 {
+        font-size: 4rem;
+        color: map-get($font-colors, main);
+    };
+    button {
+        background-color: map-get($colors, main);
+        border: map-get($borders, main);
+        border-radius: 10px;
+        a {
+            display: block;
+            text-decoration: none;
+            color: map-get($font-colors, main);
+            padding: 20px 25px;
+        };
+    };
+}
+
+
+
 
