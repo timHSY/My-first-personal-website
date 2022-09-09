@@ -2,7 +2,7 @@ $colors: (main: #220615);
 $font-colors: (main: #F6F6F6, secondary: #64ffda);
 $background-colors: (main: rgb(17, 18, 17));
 $borders: (main: 0.1rem solid #64ffda);
-$break-points:(lg: 992px, md: 768px, sm: 576px);
+$break-points:(xl: 1200px, lg: 992px, md: 768px, sm: 576px);
 $font-family-navbar: 'Roboto Mono', sans-serif;
 $font-family-default: sans-serif;
 
@@ -208,10 +208,15 @@ body {
     align-items: center;
 }
 
+.projectsShowcase-header h2 {
+    padding: 0 10vw;
+}
+
 .carousel-control {
     width: 60%;
     height: auto;
     border: map-get($borders, main);
+    border-radius: 10px;
     @media (max-width: map-get($break-points, sm)) {
         width: 100vw;
         height: auto;
@@ -235,6 +240,7 @@ body {
     width: 100%;
     height: auto;
     object-fit: fill;
+    border-radius: 10px;
 }
 
 .socialMediaColumn-wrapper {
@@ -304,7 +310,7 @@ body {
     list-style: none;
 }
 
-.fa-brands {
+.socialMediaColumn-item i {
     font-weight: 100;
     font-size: 20px;
     @extend .shiningEffectForText;
@@ -321,3 +327,38 @@ body {
         display: none;
     }
 }
+
+.myskillsSection {
+    padding: 0 10vw 5vh 10vw;
+    @include display-flex();
+}
+
+.techStack-list {
+    padding-top: 5vh;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(auto, 60px));
+    grid-gap: 40px;
+    @media (min-width: map-get($break-points, md)) {
+        grid-template-columns: repeat(4, minmax(auto, 60px));
+    }
+    @media (min-width: map-get($break-points, lg)) {
+        grid-template-columns: repeat(6, minmax(auto, 60px));
+    }  
+    @media (min-width: map-get($break-points, xl)) {
+        grid-template-columns: repeat(8, minmax(auto, 60px));
+    }  
+}
+
+.techStack-item {
+    list-style: none;
+}
+
+.techStack-item i {
+    font-size: 60px;
+    font-weight: 100; 
+    color: map-get($font-colors, secondary);
+}
+
+
+
