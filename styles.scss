@@ -1,8 +1,11 @@
-$colors: (main: #230d23);
+$colors: (main: #220615);
 $font-colors: (main: #F6F6F6, secondary: #64ffda);
 $background-colors: (main: rgb(17, 18, 17));
-$borders: (main: 0.2rem solid #64ffda);
+$borders: (main: 0.1rem solid #64ffda);
+$break-points:(lg: 992px, md: 768px, sm: 576px);
+$font-family-navbar: 'Roboto Mono', sans-serif;
 $font-family-default: sans-serif;
+
 
 @mixin display-flex {
     display: -webkit-box;
@@ -10,7 +13,12 @@ $font-family-default: sans-serif;
     display: -webkit-flex;
     display: flex;
   }
-  
+
+.h1Header {
+    font-size: 4rem;
+    font-weight: 600;
+    color: map-get($font-colors, main);
+}
 
 .shiningEffectForText {
     color: #64ffda;
@@ -28,6 +36,7 @@ $font-family-default: sans-serif;
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -39,10 +48,13 @@ body {
     @include display-flex();
     width: 100%;
     height: auto;
-    min-height: 4rem;
+    min-height: 30px;
+    padding: 10px 20px;
     justify-content: center;
     align-items: center;
-    font-family: $font-family-default;
+    font-family: $font-family-navbar;
+    font-size: 15px;
+    font-weight: 10;
 }
 
 .navbar-brand {
@@ -80,29 +92,26 @@ body {
     @include display-flex();
     width: 40%;
     height: auto;
-    margin-right: 5rem;
     flex: {
         direction: row;
         wrap: wrap;
       };
     justify-content: space-between;
     align-items: center;
-    @media (max-width: 1000px) {
+    @media (max-width: map-get($break-points, lg)) {
         @include display-flex();
         width: 80%;
         height: auto;
-        margin: auto;
         flex: {
             direction: row;
             wrap: wrap;
         };
         justify-content: space-between;
       }
-      @media (max-width: 500px) {
+      @media (max-width: map-get($break-points, md)) {
         @include display-flex();
         width: 100%;
         height: auto;
-        margin: auto;
         flex: {
             direction: column;
             wrap: wrap;
@@ -123,38 +132,172 @@ body {
 }
 
 .nav-item-contact {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     box-sizing: border-box;
     border: map-get($borders, main);
     border-radius: 15px;
     text-align: center;
 }
 
+
+
+.introSection {
+    @include display-flex();
+    width: 100%;
+    height: auto;
+    padding: 0 100px;
+    margin: 30px 0;
+    flex: {
+        direction: row;
+        wrap: nowrap;
+    };
+    align-items: stretch;
+    @media (max-width: map-get($break-points, sm)) {
+        padding: 30px;
+    }
+}
+
+.introSection-main {
+    min-width: 300px;
+    h3 {
+        font-size: 15px;
+        color: map-get($font-colors, secondary);
+    };
+    h1 {
+        @extend .h1Header;
+    };
+    .introSection-main-p1 {
+        @extend .h1Header;
+    }
+    button {
+        background-color: map-get($colors, main);
+        border: map-get($borders, main);
+        border-radius: 10px;
+        a {
+            display: block;
+            text-decoration: none;
+            color: map-get($font-colors, main);
+            padding: 15px 25px;
+        };
+    };
+}
+
+.projectsShowcase {
+    padding: 0 10vw;
+    margin-top: 2vh;
+    margin-bottom: 5vh;
+    @include display-flex();
+    flex: {
+        direction: column;
+    };
+    align-items: flex-start;
+    @media (max-width: map-get($break-points, sm)) {
+        padding: 0;
+    }
+    @media (max-width: map-get($break-points, md)) {
+        padding: 0;
+    }
+}
+
+.projectsShowcase-header {
+    margin-bottom: 30px;
+    width: 80%;
+    @include display-flex();
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.carousel-control {
+    width: 60%;
+    height: auto;
+    border: map-get($borders, main);
+    @media (max-width: map-get($break-points, sm)) {
+        width: 100vw;
+        height: auto;
+    }
+    @media (max-width: map-get($break-points, md)) {
+        width: 100vw;
+        height: auto;
+    }
+}
+
+.carousel-inner {
+    width: 100%;
+}
+
+.carousel-item {
+    width: 100%;
+    height: auto;   
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: fill;
+}
+
 .socialMediaColumn-wrapper {
     position: fixed;
+    top: 12vh;
+    margin-top: 80px;
     @include display-flex();
     width: 5%;
-    min-width: 80px;
+    max-height: 350px;
     height: auto;
-    min-height: 60vh;   
-    margin-top: 30px;
     flex: {
         direction: column;
         wrap: nowrap;
     };
     align-items: center;
     justify-content: center;
+    @media (max-width: map-get($break-points, sm)) {
+        position: static;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+    }
+    @media (max-width: map-get($break-points, md)) {
+        position: static;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .socialMediaColumn {
     @include display-flex();
     padding: 0;
     height: 70vh;
+    margin-bottom: 0;
     flex: {
         direction: column;
         wrap: nowrap;
     };
     align-items: center;
     justify-content: space-between;
+    @media (max-width: map-get($break-points, sm)) {
+        position: static;
+        width: 30%;
+        height: auto;
+        flex: {
+            direction: row;
+            wrap: wrap;
+        };
+        justify-content: space-between;
+        align-items: center;
+    }
+    @media (max-width: map-get($break-points, md)) {
+        position: static;
+        width: 30%;
+        height: auto;
+        flex: {
+            direction: row;
+            wrap: wrap;
+        };
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
 .socialMediaColumn-item {
@@ -171,43 +314,10 @@ body {
     width: 1px;
     height: 150px;
     background-color: map-get($font-colors, secondary);
+    @media (max-width: map-get($break-points, sm)) {
+        display: none;
+    }
+    @media (max-width: map-get($break-points, md)) {
+        display: none;
+    }
 }
-
-.introSection {
-    @include display-flex();
-    width: 100%;
-    height: auto;
-    padding: 0 100px;
-    margin: 30px 10px;
-    flex: {
-        direction: row;
-        wrap: nowrap;
-    };
-    align-items: stretch;
-}
-
-.introSection-main {
-    h3 {
-        font-size: 15px;
-        color: map-get($font-colors, secondary);
-    };
-    h1 {
-        font-size: 4rem;
-        color: map-get($font-colors, main);
-    };
-    button {
-        background-color: map-get($colors, main);
-        border: map-get($borders, main);
-        border-radius: 10px;
-        a {
-            display: block;
-            text-decoration: none;
-            color: map-get($font-colors, main);
-            padding: 20px 25px;
-        };
-    };
-}
-
-
-
-

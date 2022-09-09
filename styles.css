@@ -1,3 +1,9 @@
+.h1Header, .introSection-main .introSection-main-p1, .introSection-main h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  color: #F6F6F6;
+}
+
 .shiningEffectForText, .fa-brands {
   color: #64ffda;
   text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 6px #fff, 0 0 1px #0fa, 0 0 1px #0fa, 0 0 1px #0fa, 0 0 1px #0fa, 0 0 1px #0fa;
@@ -6,10 +12,11 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: #230d23;
+  background-color: #220615;
   color: #F6F6F6;
 }
 
@@ -20,10 +27,13 @@ body {
   display: flex;
   width: 100%;
   height: auto;
-  min-height: 4rem;
+  min-height: 30px;
+  padding: 10px 20px;
   justify-content: center;
   align-items: center;
-  font-family: sans-serif;
+  font-family: "Roboto Mono", sans-serif;
+  font-size: 15px;
+  font-weight: 10;
 }
 
 .navbar-brand {
@@ -34,14 +44,14 @@ body {
   background-position: center;
   width: 50px;
   height: 50px;
-  border: 0.2rem solid #64ffda;
+  border: 0.1rem solid #64ffda;
   border-radius: 50%;
   text-align: center;
   margin: 0;
 }
 
 .menuBtnColor {
-  border: 0.2rem solid #64ffda;
+  border: 0.1rem solid #64ffda;
 }
 
 .menuColor {
@@ -65,13 +75,12 @@ body {
   display: flex;
   width: 40%;
   height: auto;
-  margin-right: 5rem;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
-@media (max-width: 1000px) {
+@media (max-width: 992px) {
   .navbar-nav {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -79,13 +88,12 @@ body {
     display: flex;
     width: 80%;
     height: auto;
-    margin: auto;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .navbar-nav {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -93,7 +101,6 @@ body {
     display: flex;
     width: 100%;
     height: auto;
-    margin: auto;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
@@ -111,27 +118,149 @@ body {
 }
 
 .nav-item-contact {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   box-sizing: border-box;
-  border: 0.2rem solid #64ffda;
+  border: 0.1rem solid #64ffda;
   border-radius: 15px;
   text-align: center;
 }
 
+.introSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+  height: auto;
+  padding: 0 100px;
+  margin: 30px 0;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+@media (max-width: 576px) {
+  .introSection {
+    padding: 30px;
+  }
+}
+
+.introSection-main {
+  min-width: 300px;
+}
+.introSection-main h3 {
+  font-size: 15px;
+  color: #64ffda;
+}
+.introSection-main button {
+  background-color: #220615;
+  border: 0.1rem solid #64ffda;
+  border-radius: 10px;
+}
+.introSection-main button a {
+  display: block;
+  text-decoration: none;
+  color: #F6F6F6;
+  padding: 15px 25px;
+}
+
+.projectsShowcase {
+  padding: 0 10vw;
+  margin-top: 2vh;
+  margin-bottom: 5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+@media (max-width: 576px) {
+  .projectsShowcase {
+    padding: 0;
+  }
+}
+@media (max-width: 768px) {
+  .projectsShowcase {
+    padding: 0;
+  }
+}
+
+.projectsShowcase-header {
+  margin-bottom: 30px;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.carousel-control {
+  width: 60%;
+  height: auto;
+  border: 0.1rem solid #64ffda;
+}
+@media (max-width: 576px) {
+  .carousel-control {
+    width: 100vw;
+    height: auto;
+  }
+}
+@media (max-width: 768px) {
+  .carousel-control {
+    width: 100vw;
+    height: auto;
+  }
+}
+
+.carousel-inner {
+  width: 100%;
+}
+
+.carousel-item {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  object-fit: fill;
+}
+
 .socialMediaColumn-wrapper {
   position: fixed;
+  top: 12vh;
+  margin-top: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   width: 5%;
-  min-width: 80px;
+  max-height: 350px;
   height: auto;
-  min-height: 60vh;
-  margin-top: 30px;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
+}
+@media (max-width: 576px) {
+  .socialMediaColumn-wrapper {
+    position: static;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 768px) {
+  .socialMediaColumn-wrapper {
+    position: static;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .socialMediaColumn {
@@ -141,10 +270,33 @@ body {
   display: flex;
   padding: 0;
   height: 70vh;
+  margin-bottom: 0;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
+}
+@media (max-width: 576px) {
+  .socialMediaColumn {
+    position: static;
+    width: 30%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media (max-width: 768px) {
+  .socialMediaColumn {
+    position: static;
+    width: 30%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .socialMediaColumn-item {
@@ -161,39 +313,15 @@ body {
   height: 150px;
   background-color: #64ffda;
 }
-
-.introSection {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  width: 100%;
-  height: auto;
-  padding: 0 100px;
-  margin: 30px 10px;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: stretch;
+@media (max-width: 576px) {
+  .leftLine {
+    display: none;
+  }
 }
-
-.introSection-main h3 {
-  font-size: 15px;
-  color: #64ffda;
-}
-.introSection-main h1 {
-  font-size: 4rem;
-  color: #F6F6F6;
-}
-.introSection-main button {
-  background-color: #230d23;
-  border: 0.2rem solid #64ffda;
-  border-radius: 10px;
-}
-.introSection-main button a {
-  display: block;
-  text-decoration: none;
-  color: #F6F6F6;
-  padding: 20px 25px;
+@media (max-width: 768px) {
+  .leftLine {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
