@@ -2,7 +2,7 @@ $colors: (main: #220615);
 $font-colors: (main: #F6F6F6, secondary: #64ffda);
 $background-colors: (main: rgb(17, 18, 17));
 $borders: (main: 0.1rem solid #64ffda);
-$break-points:(xl: 1200px, lg: 992px, md: 768px, sm: 576px);
+$break-points:(xxl: 1400px, xl: 1200px, lg: 992px, md: 768px, sm: 576px);
 $font-family-navbar: 'Roboto Mono', sans-serif;
 $font-family-default: sans-serif;
 
@@ -156,6 +156,9 @@ body {
     @media (max-width: map-get($break-points, sm)) {
         padding: 30px;
     }
+    @media (min-width: map-get($break-points, xxl)) {
+        padding: 0 10vw 0 10vw;
+    }
 }
 
 .introSection-main {
@@ -262,12 +265,14 @@ body {
         width: 100vw;
         justify-content: center;
         align-items: center;
+        padding-bottom: 5vh;
     }
     @media (max-width: map-get($break-points, md)) {
         position: static;
         width: 100vw;
         justify-content: center;
         align-items: center;
+        padding-bottom: 5vh;
     }
 }
 
@@ -361,4 +366,46 @@ body {
 }
 
 
+.contactSection-Wrapper {
+    width: 100%;
+    padding: 0 10vw 5vh 10vw;
+    @include display-flex();
+    justify-content: flex-start;
+    align-items: center;    
+}
 
+.contactSection {
+    font-family: $font-family-navbar;
+}
+
+.contactFrom-item {
+    margin-bottom: 10px;
+    width: 80vw;
+    max-width: 800px;
+    @include display-flex();
+    justify-content: flex-start;
+    
+}
+
+.contactFrom-btn {
+    margin-bottom: 10px;
+    width: 30vw;
+    max-width: 150px;
+    height: auto;
+    border-radius: 10px;
+    border: map-get($borders, main);
+    background-color: map-get($font-colors, secondary);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.footerCustomized {
+    @include display-flex();
+    justify-content: center;
+    align-items: center;
+}
+
+.footerCustomized footer {
+    padding-bottom: 20px;
+    font-family: $font-family-navbar;
+}
